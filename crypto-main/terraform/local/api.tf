@@ -1,4 +1,5 @@
 resource "aws_api_gateway_rest_api" "crypto_api" {
+  # oak9: aws_api_gateway_rest_api.policy is not configured
   name        = "CryptoAPI"
   description = "This is a Crypto API"
 }
