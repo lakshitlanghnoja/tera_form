@@ -1,4 +1,5 @@
 resource "aws_api_gateway_rest_api" "crypto_api" {
+  # oak9: aws_api_gateway_rest_api.policy is not configured
   name        = "CryptoAPI"
   description = "This is a Crypto API"
 }
@@ -13,7 +14,7 @@ resource "aws_api_gateway_method" "crypto_api_get" {
   rest_api_id   = aws_api_gateway_rest_api.crypto_api.id
   resource_id   = aws_api_gateway_resource.crypto_api_resource.id
   http_method   = "POST"
-  authorization = "NONE"
+  authorization = "NONE" # oak9: authorization should be set to any of aws_iam, custom, cognito_user_pools
 }
 
 resource "aws_api_gateway_integration" "crypto_integration" {
